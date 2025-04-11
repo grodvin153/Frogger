@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1 - Elementos de juego | Juego Frogger </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Iván Ruiz Mostazo" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-2"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Juego Frogger</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Juego Frogger</a></li>
+   <li><a href="introduccin.html" class="no-ch">Introducción</a></li>
+   <li id="active"><a href="1__elementos_de_juego.html" class="active no-ch">1 - Elementos de juego</a></li>
+   <li><a href="2__control_de_movimiento.html" class="no-ch">2 - Control de movimiento</a></li>
+   <li><a href="3__funcionamiento_del_juego.html" class="no-ch">3 - Funcionamiento del juego</a></li>
+   <li><a href="4__video_turorial_del_juego.html" class="no-ch">4 - Video turorial del juego</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="introduccin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2__control_de_movimiento.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">1 - Elementos de juego</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id1">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Inicialización del juego</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta1_122_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>En primer lugar vamos a inicializar el juego:</p>
+<ul>
+<li>importando la librería pygame zero <strong>pgzrun</strong> y la librería <strong>random</strong>.</li>
+<li>añadiendo un título al juego, por ejemplo <strong>Frogger</strong>.</li>
+<li>añadiendo las dimensiones, <strong>600 </strong>de alto (<strong>height</strong>) y <strong>800</strong> de ancho (<strong>width</strong>).</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>import pgzrun
+import random
+
+TITLE = 'Frogger'
+WIDTH = 800
+HEIGHT = 600</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id2">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Añadimos los elementos principales del juego</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta2_123_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>En primer lugar creamos el <strong>actor</strong> rana, utilizando la imagen "<em>frog_up</em>".</p>
+<p>La posición horizontal será el centro (<strong>width/2</strong>) de la pantalla, y la posición vertical a 50 del borde inferior (<strong>height-50</strong>).</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>player = Actor("frog_up", (WIDTH // 2, HEIGHT - 50))</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para crear el conjunto de coches necesitaremos utilizar listas.</p>
+<ul>
+<li>En primer lugar creamos una lista vacía.</li>
+<li>A continuación indicamos el número de coches que vamos a crear, por ejemplo 8.</li>
+<li>Y definimos la posición vertical inicial del primer coche, por ejemplo 50.</li>
+<li>Vamos a repetir esta operación tantas veces como coches queremos añadir a la lista
+<ul>
+<li>Obtenemos la posición horizontal aleatoria del coche. Será un valor entre 0 y el tamaño de pantalla (width).</li>
+<li>Incrementamos la posición vertical del coche en 40. De esta forma, cada coche será posicionado en una altura diferente (90, 130, 170...)</li>
+<li>Se crea un coche en la posición horizontal y vertical definida anteriormente, con la imagen "<em>car</em>".</li>
+<li>Añadimos el coche creado a la lista.</li>
+</ul>
+</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>vehicles = []
+y = 50
+num_vehicles = 8
+for i in range(num_vehicles):
+    x = random.randint(0, WIDTH)
+    y = y + 40
+    car = Actor("car", (x, y))
+    vehicles.append(car)</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id3">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Dibujamos los elementos en pantalla</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta3_124_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para mostrar los elementos de juego por pantalla utilizaremos la función <strong>draw</strong>.</p>
+<p>Dentro de esta función:</p>
+<ul>
+<li>Rellenamos (<strong>fill</strong>) el fondo de la pantalla de color negro (<strong>black</strong>).</li>
+<li>Dibujamos un rectángulo verde (<strong>green</strong>) desde la esquina superior izquierda (posición 0,0) de altura <strong>50</strong> y de ancho toda la pantalla (<strong>width</strong>).</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>def draw():
+    screen.fill("black")
+    screen.draw.filled_rect(Rect((0, 0), (WIDTH, 50)), "green")</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>A continuación añadimos los elementos de juego:</p>
+<ul>
+<li>Añadimos el objeto <strong>player.</strong></li>
+<li>Añadimos cada uno de los vehículos que están dentro de la lista <strong>vehículos</strong>.</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Dentro de la función <strong>draw</strong></p>
+<div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>def draw():
+    screen.fill("black")
+    screen.draw.filled_rect(Rect((0, 0), (WIDTH, 50)), "green")
+</code></pre>
+</div>
+</div>
+<p>también añadimos el siguiente código:</p>
+<div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>    player.draw()
+    for vehicle in vehicles:
+        vehicle.draw()
+</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id4">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Ejecución del juego</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta4_125_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>La última línea del código debe ser la ejecución del programa (<strong>go</strong>) a través de la librería <strong>pgzrun</strong>.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>pgzrun.go()</code></pre>
+</div>
+</div>
+</div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="introduccin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2__control_de_movimiento.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

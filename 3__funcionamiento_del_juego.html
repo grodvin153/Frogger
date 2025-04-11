@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3 - Funcionamiento del juego | Juego Frogger </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Iván Ruiz Mostazo" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-4"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Juego Frogger</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Juego Frogger</a></li>
+   <li><a href="introduccin.html" class="no-ch">Introducción</a></li>
+   <li><a href="1__elementos_de_juego.html" class="no-ch">1 - Elementos de juego</a></li>
+   <li><a href="2__control_de_movimiento.html" class="no-ch">2 - Control de movimiento</a></li>
+   <li id="active"><a href="3__funcionamiento_del_juego.html" class="active no-ch">3 - Funcionamiento del juego</a></li>
+   <li><a href="4__video_turorial_del_juego.html" class="no-ch">4 - Video turorial del juego</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="2__control_de_movimiento.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4__video_turorial_del_juego.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3 - Funcionamiento del juego</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice" id="id8">
+<div class="iDevice emphasis0" >
+<div id="ta8_129_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-engagement"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p><strong>Las modificaciones que se proponen en esta página son de carácter voluntario</strong></p></div></div></section></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id9">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Creamos las variables puntos y vidas</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta9_130_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para mejorar el funcionamiento del juego, vamos a añadir dos variables fundamentales en la ejecución de cualquier juego: los puntos y las vidas.</p>
+<p>En primer lugar creamos la variable vida (<strong>lives</strong>) con valor <strong>3</strong> (o el que prefieras) y la variable puntuación (<strong>score</strong>) con valor <strong>0</strong>.</p>
+<p>Estas variables se colocan en la parte superior del código, por ejemplo tras la definición del título y dimensiones de la ventana.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python">
+<div>
+<pre><code>score = 0
+lives = 3</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Mostramos esta información en la pantalla. Para ello, añadiremos el siguiente código dentro de la función inicial <strong>draw</strong>:</p>
+<ul>
+<li>Dibujaremos en la pantalla el texto "<strong>Score</strong>:" y el valor de la variable de puntos. Lo mostraremos en la posición <strong>10,10</strong> (esquina superior izquierda) y de color <strong>blanco</strong>.</li>
+<li>Dibujaremos en la pantalla el texto "<strong>Lives</strong>:" y el valor de la variable de vidas. Lo mostraremos en la posición <strong>10, ancho de ventana-10</strong> (esquina superior derecha) y de color <strong>blanco</strong>.</li>
+<li>Si las vidas es menor o igual a 0
+<ul>
+<li>Dibujaremos en la pantalla el texto "<strong>GAME OVER</strong>". Lo mostraremos centrado en la ventana (<strong>width/2 , height/2</strong>) y de color <strong>rojo</strong>.</li>
+</ul>
+</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python hightlight-7-10">
+<div>
+<pre><code>def draw():
+    screen.fill("black")
+    screen.draw.filled_rect(Rect((0, 0), (WIDTH, 50)), "green")
+    player.draw()
+    for vehicle in vehicles:
+        vehicle.draw()
+    screen.draw.text(f"Score: {score}", (10, 10), color="white")
+    screen.draw.text(f"Lives: {lives}", (WIDTH - 100, 10), color="white")
+    if lives &lt;= 0:
+        screen.draw.text("GAME OVER", center=(WIDTH // 2, HEIGHT // 2), fontsize=50, color="red")</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id10">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Añadimos puntos y quitamos vidas</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta10_131_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Añadimos el código para contabilizar un punto cada vez que el jugador alcance la zona segura.</p>
+<p>Para ello, incluimos el <strong>incremento</strong> de la variable puntuación (<strong>score</strong>) en la función <strong>update_player.</strong></p>
+<p>Además debemos incluir la referencia <strong>global</strong> a la variable de puntuación (<strong>score</strong>).</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python hightlight-2and18">
+<div>
+<pre><code>def update_player():
+	global score
+    player_speed = 3
+    if keyboard.left and player.x &gt; 0:
+        player.x = player.x - player_speed
+        player.image = 'frog_left'
+    if keyboard.right and player.x &lt; WIDTH:
+        player.x = player.x + player_speed
+        player.image = 'frog_right'
+    if keyboard.up and player.y &gt; 0:
+        player.y = player.y - player_speed
+        player.image = 'frog_up'
+    if keyboard.down and player.y &lt; HEIGHT:
+        player.y = player.y + player_speed
+        player.image = 'frog_down'
+    if player.y &lt; 50:
+        player.pos = (WIDTH // 2, HEIGHT - 50)
+        score = score + 1</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Por el contrario, la pérdida de vidas ocurrirá al colisionar el jugador con un vehículo.</p>
+<p>Para ello añadiremos en la función <strong>update_vehicles</strong>, el <strong>decremento</strong> de la variable vidas (<strong>lives</strong>) al colisionar con un vehículo.</p>
+<p>Además debemos incluir la referencia <strong>global</strong> a la variable de vidas (<strong>lives</strong>).</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python hightlight-11">
+<div>
+<pre><code>def update_vehicles():
+    global lives
+    vehicle_speed = 3
+    for vehicle in vehicles:
+        vehicle.x = vehicle.x + vehicle_speed
+        if vehicle.x &gt; WIDTH:
+            vehicle.x = -50
+    for vehicle in vehicles:
+        if player.colliderect(vehicle):
+            player.pos = (WIDTH // 2, HEIGHT - 50)
+            lives = lives - 1</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Por último, aunque hemos mostrado el mensaje GAME OVER, habrás observado que el juego no se detiene. Esto se debe a que a pesar del mensaje, la función <strong>update</strong> continúa su ejecución.</p>
+<p>Para forzar la detención del juego, debemos añadir el siguiente código dentro de la función <strong>update</strong>, al principio antes del resto de código.</p>
+<ul>
+<li><strong>Si las vidas son igual o menor a 0</strong>
+<ul>
+<li>añadir la instrucción <strong>return</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Esta instrucción obliga a finalizar la función, sin llegar a ejecutar el resto de código update_player y update_vehicles. De esta forma conseguimos el efecto de detención del juego</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="highlighted-code code-style-2 language-python hightlight-2-3">
+<div>
+<pre><code>def update():
+    if lives &lt;= 0:
+        return  
+    update_player()
+    update_vehicles()</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id11">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Cambiar el sentido de algunos vehiculos</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta11_132_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Vamos a hacer una modificación voluntaria al juego. Como van a ser muchos cambios, te recomiendo que hagas copia del juego que ya has realizado y funciona correctamente.</p>
+<p>En esta ocasión vamos a cambiar el funcionamiento del juego para que algunos vehiculos se muevan de izquierda a derecha (como hasta ahora), pero otros lo hagan en sentido contrario de derecha a izquierda.</p>
+<p>En primer lugar vamos a cambiar la creación de los vehículos, en lugar de tener una lista <strong>vehicles</strong>, vamos a tener dos listas <strong>vehicles_left</strong> y <strong>vehicles_right.</strong></p>
+<p>Al crear los vehículos, calculamos una variable <strong>pos</strong> aleatoria con valor 0 o 1.</p>
+<p><strong>Si</strong> el valor <strong>pos es 0</strong>, el vehículo irá de izquierda a derecha y para ello lo añadimos a la lista <strong>vehicles_right.</strong></p>
+<p><strong>En caso contrario</strong>, si el valor es 1, el vehículo irá de derecha a izquierda y para ello lo añadimos a la lista <strong>vehicles_left</strong>. En este caso, vamos a utilizar una imagen invertida del coche "<em>car_inv</em>".</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Vamos a cambiar este código</p>
+<div class="highlighted-code code-style-2 language-python  hightlight-1and7and8">
+<div>
+<pre><code>vehicles = []
+y = 50
+num_vehicles = 8
+for i in range(num_vehicles):
+    x = random.randint(0, WIDTH)
+    y = y + 40
+    car = Actor("car", (x, y))
+    vehicles.append(car)
+</code></pre>
+</div>
+</div>
+<p>Por este otro</p>
+<div class="highlighted-code code-style-2 language-python  hightlight-1and2and8-12">
+<div>
+<pre><code>vehicles_left = []
+vehicles_right = []
+y = 50
+num_vehicles = 8
+for i in range(num_vehicles):
+    x = random.randint(0, WIDTH)
+    y = y + 40
+    pos = random.randint(0,1)
+    if pos==0:
+        vehicles_right.append(Actor("car", (x, y)))
+    else:
+        vehicles_left.append(Actor("car_inv", (x, y)))
+</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para dibujar correctamente los vehículos, vamos a modificar el código de la función <strong>draw</strong>.</p>
+<p>En esta función, vamos a cambiar el bucle que recorre la lista <strong>vehicles</strong>, por una suma de las listas <strong>vehicles_left</strong> + <strong>vehicles_right</strong>.</p>
+<p>Las listas en Python se pueden sumar uniendo sus elementos.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Cambiamos el siguiente código</p>
+<div class="highlighted-code code-style-2 language-python hightlight-5">
+<div>
+<pre><code>def draw():
+    screen.fill("black")
+    screen.draw.filled_rect(Rect((0, 0), (WIDTH, 50)), "green")
+    player.draw()
+    for vehicle in vehicles:
+        vehicle.draw()
+</code></pre>
+</div>
+</div>
+<p>Por este otro</p>
+<div class="highlighted-code code-style-2 language-python hightlight-5">
+<div>
+<pre><code>def draw():
+    screen.fill("black")
+    screen.draw.filled_rect(Rect((0, 0), (WIDTH, 50)), "green")
+    player.draw()
+    for vehicle in (vehicles_left + vehicles_right):
+        vehicle.draw()</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>El siguiente paso es gestionar el movimiento de los vehículos de una lista en un sentido y los vehículos de la otra lista en sentido contrario.</p>
+<p>Para ello, dentro de la función <strong>update_vehicles</strong>, cambiaremos el primer bucle que recorre la lista <strong>vehicles</strong>. El segundo bucle, por ahora no lo modificaremos.</p>
+<ul>
+<li>Cambiamos el nombre de la lista <strong>vehicles </strong>por <strong>vehicles_right.</strong>
+<ul>
+<li>El resto del bucle permanece sin cambio.</li>
+</ul>
+</li>
+<li>Duplicamos todo el bucle creando una nueva copia igual a la anterior, y cambiamos el nombre de la lista de <strong>vehicles_right</strong> a <strong>vehicles_left</strong>
+<ul>
+<li>En esta ocasión la <strong>posición x del vehículo se resta a la velocidad del vehículo</strong> (ya que vamos en sentido contrario).</li>
+<li>Comprobamos <strong>si</strong> el vehículo supera el margen izquierdo, es decir <strong>x&lt;0</strong>.
+<ul>
+<li>En ese caso, posicionamos el vehículo por fuera del margen derecho, es decir, el tamaño de la ventana (<strong>width</strong>) <strong>+ 50</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Vamos a cambiar este código</p>
+<div class="highlighted-code code-style-2 language-python hightlight-5-8">
+<div>
+<pre><code>def update_vehicles():
+    global lives
+    vehicle_speed = 3
+
+    for vehicle in vehicles:
+        vehicle.x = vehicle.x + vehicle_speed
+        if vehicle.x &gt; WIDTH:
+            vehicle.x = -50
+</code></pre>
+</div>
+</div>
+<p>Por este otro</p>
+<div class="highlighted-code code-style-2 language-python hightlight-5-8and 10-13">
+<div>
+<pre><code>def update_vehicles():
+    global lives
+    vehicle_speed = 3
+
+    for vehicle in vehicles_right:
+        vehicle.x = vehicle.x + vehicle_speed
+        if vehicle.x &gt; WIDTH:
+            vehicle.x = -50
+            
+    for vehicle in vehicles_left:
+        vehicle.x = vehicle.x - vehicle_speed
+        if vehicle.x &lt; 0:
+            vehicle.x = WIDTH+50
+</code></pre>
+</div>
+</div></div></div></section><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Por último, dentro de esta misma función <strong>update_vehicles</strong>, vamos a modificar el bucle que controla las colisiones con el jugador.</p>
+<p>Modificamos el último bucle (<strong>for</strong>) cambiando la lista <strong>vehicles</strong> por la suma de <strong>vehicles_left</strong> + <strong>vehicles_right</strong>.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ver código</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Cambiamos este código</p>
+<div class="highlighted-code code-style-2 language-python hightlight-13">
+<div>
+<pre><code>def update_vehicles():
+    global lives
+    vehicle_speed = 3
+    for vehicle in vehicles_right:
+        vehicle.x = vehicle.x + vehicle_speed
+        if vehicle.x &gt; WIDTH:
+            vehicle.x = -50
+    for vehicle in vehicles_left:
+        vehicle.x = vehicle.x - vehicle_speed
+        if vehicle.x &lt; 0:
+            vehicle.x = WIDTH+50
+
+    for vehicle in vehicles:
+        if player.colliderect(vehicle):
+            player.pos = (WIDTH // 2, HEIGHT - 50)
+            lives = lives - 1</code></pre>
+</div>
+</div>
+<p>Por este otro código</p>
+<div class="highlighted-code code-style-2 language-python hightlight-13">
+<div>
+<pre><code>def update_vehicles():
+    global lives
+    vehicle_speed = 3
+    for vehicle in vehicles_right:
+        vehicle.x = vehicle.x + vehicle_speed
+        if vehicle.x &gt; WIDTH:
+            vehicle.x = -50
+    for vehicle in vehicles_left:
+        vehicle.x = vehicle.x - vehicle_speed
+        if vehicle.x &lt; 0:
+            vehicle.x = WIDTH+50
+
+    for vehicle in (vehicles_left + vehicles_right):
+        if player.colliderect(vehicle):
+            player.pos = (WIDTH // 2, HEIGHT - 50)
+            lives = lives - 1</code></pre>
+</div>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="2__control_de_movimiento.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4__video_turorial_del_juego.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>
